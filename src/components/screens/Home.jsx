@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import useServerData from "../../hook/useServerData";
 import Table from "../ui/table/table";
 import Search from "../ui/search/search";

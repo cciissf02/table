@@ -1,4 +1,3 @@
-import React from "react";
 import "./modalstyle.css";
 
 const Modal = ({ modalItemData, closeModal }) => {

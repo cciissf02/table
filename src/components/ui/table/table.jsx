@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import Modal from "../modal/modal";
 import Loader from "../loader/loader";
 import "./tablestyle.css";
