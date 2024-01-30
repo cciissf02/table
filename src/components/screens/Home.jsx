@@ -17,19 +17,22 @@ function Home() {
     if (!query) {
       return data;
     }
+
+    const searchString = query.toLowerCase();
+
     return data.filter((el) => {
-      const searchString = String(query).toLowerCase();
+      const { firstName, lastName, maidenName, age, gender, phone, address } =
+        el;
+
       return (
-        el["firstName"].toLowerCase().includes(searchString) ||
-        el["lastName"].toLowerCase().includes(searchString) ||
-        el["maidenName"].toLowerCase().includes(searchString) ||
-        String(el["age"]).toLowerCase().includes(searchString) ||
-        el["gender"].toLowerCase().includes(searchString) ||
-        String(el["phone"]).toLowerCase().includes(searchString) ||
-        (el["address"] &&
-          el["address"]["city"].toLowerCase().includes(searchString)) ||
-        (el["address"] &&
-          el["address"]["address"].toLowerCase().includes(searchString))
+        firstName.toLowerCase().includes(searchString) ||
+        lastName.toLowerCase().includes(searchString) ||
+        maidenName.toLowerCase().includes(searchString) ||
+        String(age).toLowerCase().includes(searchString) ||
+        gender.toLowerCase().includes(searchString) ||
+        String(phone).toLowerCase().includes(searchString) ||
+        (address && address.city.toLowerCase().includes(searchString)) ||
+        (address && address.address.toLowerCase().includes(searchString))
       );
     });
   };
@@ -42,11 +45,6 @@ function Home() {
     setRowIsClicked(true);
     setRowItem(row);
   };
-
-  useEffect(() => {
-    document.title = "Table Task";
-  }, []);
-
   return (
     <div>
       <Search onSearchSend={onSearchSend} resetSearch={resetSearch} />
